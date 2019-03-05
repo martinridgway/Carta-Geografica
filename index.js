@@ -43,7 +43,7 @@ function simpleReverseGeocoding(lon, lat) {
 }
 
 window.onload = function() {
-  simpleReverseGeocoding();
+  simpleReverseGeocoding(lon, lat);
 }
 
 document.getElementById('map-tagline').innerHTML = centerDegrees; // display deg, min, sec in our panel
