@@ -61620,12 +61620,13 @@ function simpleReverseGeocoding(lon, lat) {
   fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function (response) {
     return response.json();
   }).then(function (json) {
-    document.getElementById('address').innerHTML = json.display_name;
+    document.getElementById('map-title').innerHTML = json.address.city;
+    document.getElementById('map-subtitle').innerHTML = json.address.state;
   });
 }
 
 window.onload = function () {
-  simpleReverseGeocoding();
+  simpleReverseGeocoding(lon, lat);
 };
 
 document.getElementById('map-tagline').innerHTML = centerDegrees; // display deg, min, sec in our panel
@@ -61656,7 +61657,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57405" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64367" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

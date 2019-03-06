@@ -38,7 +38,8 @@ function simpleReverseGeocoding(lon, lat) {
   fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + lon + '&lat=' + lat).then(function(response) {
     return response.json();
   }).then(function(json) {
-    document.getElementById('address').innerHTML = json.display_name;
+    document.getElementById('map-title').innerHTML = json.address.city;
+    document.getElementById('map-subtitle').innerHTML = json.address.state;
   })
 }
 
