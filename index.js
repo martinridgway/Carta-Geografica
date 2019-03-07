@@ -40,6 +40,14 @@ function simpleReverseGeocoding(lon, lat) {
   }).then(function(json) {
     document.getElementById('map-title').innerHTML = json.address.city;
     document.getElementById('map-subtitle').innerHTML = json.address.state;
+
+  var m = document.createElement('meta');
+  m.name = 'description';
+  m.content = 'A map of ' + json.address.city + ', ' + json.address.state;
+  document.head.appendChild(m);
+
+  document.title = m.content;
+
   })
 }
 
