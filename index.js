@@ -1,11 +1,18 @@
 import 'ol/ol.css';
 import './styles.css';
-import {Map, View} from 'ol';
+import {
+  Map,
+  View
+} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import Stamen from 'ol/source/Stamen';
-import {fromLonLat} from 'ol/proj';
-import {toStringHDMS} from 'ol/coordinate';
+import {
+  fromLonLat
+} from 'ol/proj';
+import {
+  toStringHDMS
+} from 'ol/coordinate';
 
 var lon = -71.0606;
 var lat = 42.3596;
@@ -27,6 +34,8 @@ const map = new Map({
       })
     })
   ],
+  controls: [
+  ],
   target: 'map',
   view: new View({
     center: centerWebMercator,
@@ -41,12 +50,12 @@ function simpleReverseGeocoding(lon, lat) {
     document.getElementById('map-title').innerHTML = json.address.city;
     document.getElementById('map-subtitle').innerHTML = json.address.state;
 
-  var m = document.createElement('meta');
-  m.name = 'description';
-  m.content = 'A map of ' + json.address.city + ', ' + json.address.state;
-  document.head.appendChild(m);
+    var m = document.createElement('meta');
+    m.name = 'description';
+    m.content = 'A map of ' + json.address.city + ', ' + json.address.state;
+    document.head.appendChild(m);
 
-  document.title = m.content;
+    document.title = m.content;
 
   })
 }
