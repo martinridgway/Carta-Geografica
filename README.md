@@ -30,9 +30,7 @@ To create a production bundle of your application, simply type `npm run build` a
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* Coming soon
 
 ## Contributing
 
@@ -47,7 +45,7 @@ Coming soon
 * **Martin Ridgway** - *Initial work* - [martinridgway](https://github.com/martinridgway)
 * **Derek Montgomery** - *Much less dumb v2 rewrite* - [DerektheDev](https://github.com/derekthedev)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/carta-geografica/contributors) who participated in this project. Coming soon
 
 ## License
 
