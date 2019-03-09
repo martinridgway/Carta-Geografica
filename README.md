@@ -37,7 +37,7 @@ Coming soon
 
 ## Contributing
 
-Coming soon
+Our [Contributor Covenant](https://github.com/martinridgway/carta-geografica/blob/master/CODE_OF_CONDUCT.md) is available to read, and generated from the excellent work by https://www.contributor-covenant.org/
 
 ## Versioning
 
@@ -52,7 +52,7 @@ See also the list of [contributors](https://github.com/carta-geografica/contribu
 
 ## License
 
-Coming soon
+Our [AGPL-3.0 license is here](https://github.com/martinridgway/carta-geografica/blob/master/LICENSE).
 
 ## Acknowledgments
 
