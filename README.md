@@ -14,7 +14,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them:
 
-- Node (we're using v11.11)
+- [NodeJS](https://nodejs.org/en/) (we're using v11.11)
+  - I typically install using NVM, and found [this guide](https://yoember.com/nodejs/the-best-way-to-install-node-js/) a spot-on way to do it
 - Coming soon
 
 ### Installing
