@@ -1,5 +1,7 @@
 # Carta Geografica
 
+*Carta Geografica* - sounds ace, right? It just means "map" in Italian...
+
 The digital world is full of beautiful maps, but we don't treat them like the art they are. This project aims to change that, with its perspective firmly placed on picking a location that's important to you, and highlighting it using a beautiful digital map template. Of course, you'll be able to choose one or many locations, showcase them across one screen or many screens, and do all that from an easy-to-use location picker in your browser.
 
 As we near release, we'll share recommended hardware and build guides to get you started creating a wall-mounted map display of your own.
