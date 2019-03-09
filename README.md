@@ -32,7 +32,7 @@ To create a production bundle of your application, simply type `npm run build` a
 
 ## Built With
 
-* Coming soon
+Coming soon
 
 ## Contributing
 
@@ -55,4 +55,5 @@ Coming soon
 
 ## Acknowledgments
 
-Coming soon
+- The amazing [OpenLayers](https://openlayers.org/) project
+- [Stamen Watercolors](http://maps.stamen.com/) map
