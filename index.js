@@ -19,7 +19,7 @@ var lat = 42.3596;
 
 const centerLonLat = [lon, lat];
 const centerWebMercator = fromLonLat(centerLonLat);
-const centerDegrees = toStringHDMS(centerLonLat, 1); //convert the co-ordinates to degrees, minutes, and seconds
+const centerDegrees = toStringHDMS(centerLonLat, 1); // convert the co-ordinates to degrees, minutes, and seconds
 
 const map = new Map({
   layers: [
@@ -34,8 +34,7 @@ const map = new Map({
       })
     })
   ],
-  controls: [
-  ],
+  controls: [], // removing all default controls from the rendered map
   target: 'map',
   view: new View({
     center: centerWebMercator,
