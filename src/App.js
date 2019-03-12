@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import "./App.css";
 
-import "ol/ol.css";
-import { Map, View } from "ol";
-import TileLayer from "ol/layer/Tile";
-import OSM from "ol/source/OSM";
-import Stamen from "ol/source/Stamen";
 import { fromLonLat } from "ol/proj";
 import { toStringHDMS } from "ol/coordinate";
 
-import MartinMap from "./components/map";
+import Map from "./components/map";
 import Panel from "./components/panel";
 
 class App extends Component {
@@ -23,26 +17,6 @@ class App extends Component {
   centerLonLat = [this.lon, this.lat];
   centerWebMercator = fromLonLat(this.centerLonLat);
   centerDegrees = toStringHDMS(this.centerLonLat, 1); //convert the co-ordinates to degrees, minutes, and seconds
-
-  map = new Map({
-    layers: [
-      new TileLayer({
-        source: new Stamen({
-          layer: "watercolor"
-        })
-      }),
-      new TileLayer({
-        source: new Stamen({
-          layer: "terrain-labels"
-        })
-      })
-    ],
-    target: "map",
-    view: new View({
-      center: this.centerWebMercator,
-      zoom: 15
-    })
-  });
 
   simpleReverseGeocoding = () => {
     fetch(
@@ -76,10 +50,11 @@ class App extends Component {
   }
 
   render() {
+    const { address } = this.state;
     return (
       <div className="App-header">
-        <MartinMap />
-        <Panel {...this.state.address} />
+        <Map center={this.centerWebMercator} />
+        <Panel {...address} />
       </div>
     );
   }
