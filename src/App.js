@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-import { fromLonLat } from "ol/proj";
-import { toStringHDMS } from "ol/coordinate";
-
 import Map from "./components/map";
 import Panel from "./components/panel";
 
@@ -13,10 +10,6 @@ class App extends Component {
   state = {
     address: null
   };
-
-  centerLonLat = [this.lon, this.lat];
-  centerWebMercator = fromLonLat(this.centerLonLat);
-  centerDegrees = toStringHDMS(this.centerLonLat, 1); //convert the co-ordinates to degrees, minutes, and seconds
 
   simpleReverseGeocoding = () => {
     fetch(
@@ -30,8 +23,6 @@ class App extends Component {
       .then(json => {
         this.setState({ address: json.address });
         this.modifyMeta();
-
-        document.getElementById("map-tagline").innerHTML = this.centerDegrees; // display deg, min, sec in our panel
       });
   };
 
@@ -51,10 +42,12 @@ class App extends Component {
 
   render() {
     const { address } = this.state;
+    const { lon, lat } = this;
+
     return (
       <div className="App-header">
-        <Map center={this.centerWebMercator} />
-        <Panel {...address} />
+        <Map lon={lon} lat={lat} />
+        <Panel {...address} lon={lon} lat={lat} />
       </div>
     );
   }

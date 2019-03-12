@@ -4,11 +4,15 @@ import { Map as OlMap, View } from "ol";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import Stamen from "ol/source/Stamen";
+import { fromLonLat } from "ol/proj";
 
 import "ol/ol.css";
 
 class Map extends Component {
   componentDidMount() {
+    const { lon, lat } = this.props;
+    const center = fromLonLat([lon, lat]);
+
     new OlMap({
       layers: [
         new TileLayer({
@@ -24,7 +28,7 @@ class Map extends Component {
       ],
       target: "map",
       view: new View({
-        center: this.props.center,
+        center,
         zoom: 15
       })
     });
