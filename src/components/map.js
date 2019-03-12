@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Map as OlMap, View } from "ol";
 import TileLayer from "ol/layer/Tile";
-import OSM from "ol/source/OSM";
+// import OSM from "ol/source/OSM";
 import Stamen from "ol/source/Stamen";
 import { fromLonLat } from "ol/proj";
 
@@ -26,6 +26,7 @@ class Map extends Component {
           })
         })
       ],
+      controls: [], // removing all default controls from the rendered map
       target: "map",
       view: new View({
         center,
