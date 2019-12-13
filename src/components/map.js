@@ -10,6 +10,10 @@ import "ol/ol.css";
 
 class Map extends Component {
   componentDidMount() {
+    this.drawMap();
+  }
+
+  drawMap = () => {
     const { lon, lat } = this.props;
     const center = fromLonLat([lon, lat]);
 
@@ -33,7 +37,7 @@ class Map extends Component {
         zoom: 15
       })
     });
-  }
+  };
 
   render() {
     return <div id="map" />;

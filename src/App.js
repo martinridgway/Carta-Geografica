@@ -13,9 +13,7 @@ class App extends Component {
 
   simpleReverseGeocoding = () => {
     fetch(
-      `http://nominatim.openstreetmap.org/reverse?format=json&lon=${
-        this.lon
-      }&lat=${this.lat}`
+      `http://nominatim.openstreetmap.org/reverse?format=json&lon=${this.lon}&lat=${this.lat}`
     )
       .then(response => {
         return response.json();
@@ -37,17 +35,20 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.simpleReverseGeocoding(this.lon, this.lat);
+    this.simpleReverseGeocoding();
   }
 
   render() {
     const { address } = this.state;
     const { lon, lat } = this;
 
+    console.log(address);
+
     return (
-      <div className="App-header">
+      <div className="app-wrapper">
         <Map lon={lon} lat={lat} />
         <Panel {...address} lon={lon} lat={lat} />
+        {/* <Panel building={address.building} road={address.road} lon={lon} lat={lat} /> */}
       </div>
     );
   }
