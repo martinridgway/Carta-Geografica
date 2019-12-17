@@ -3,24 +3,26 @@ import React, { Component } from "react";
 import Map from "./components/map";
 import Panel from "./components/panel";
 
-class App extends Component {
-  lon = -71.0606;
-  lat = 42.3596;
+import location from "./location";
 
+class App extends Component {
   state = {
     address: null
   };
 
-  simpleReverseGeocoding = () => {
+  geocode = address => {
     fetch(
-      `http://nominatim.openstreetmap.org/reverse?format=json&lon=${this.lon}&lat=${this.lat}`
+      `http://nominatim.openstreetmap.org/search?q=${address}&format=json&limit=1&addressdetails=1`
     )
       .then(response => {
         return response.json();
       })
       .then(json => {
-        this.setState({ address: json.address });
-        this.modifyMeta();
+        const location = json[0];
+        const address = location.address;
+        const { lat, lon } = location;
+
+        this.setState({ address, lat: parseFloat(lat), lon: parseFloat(lon) });
       });
   };
 
@@ -35,18 +37,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.simpleReverseGeocoding();
+    this.geocode(location);
   }
 
   render() {
-    const { address } = this.state;
-    const { lon, lat } = this;
+    const { address, lat, lon } = this.state;
+    const coordinatesAreAvailable = Boolean(lat && lon);
 
     return (
       <div className="app-wrapper">
-        <Map lon={lon} lat={lat} />
+        {coordinatesAreAvailable && <Map lon={lon} lat={lat} />}
         <Panel {...address} lon={lon} lat={lat} />
-        {/* <Panel building={address.building} road={address.road} lon={lon} lat={lat} /> */}
       </div>
     );
   }
