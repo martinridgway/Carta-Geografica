@@ -42,8 +42,6 @@ class App extends Component {
     const { address } = this.state;
     const { lon, lat } = this;
 
-    console.log(address);
-
     return (
       <div className="app-wrapper">
         <Map lon={lon} lat={lat} />
